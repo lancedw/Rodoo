@@ -1,0 +1,55 @@
+name: livent
+description: Bringing people together
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_svg: ^1.1.5
+  flutter_launcher_icons: ^0.10.0
+  firebase_core: ^1.4.0
+  firebase_auth: ^3.0.1
+  firebase_storage: ^10.0.1
+  firebase_app_check: ^0.0.2
+  cloud_firestore: ^3.5.1
+  country_code_picker: ^2.0.2
+  carousel_slider: ^4.0.0
+  cached_network_image: ^3.1.0
+  photo_view: ^0.14.0
+
+  flutter_lints: ^2.0.1
+
+flutter:
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+    - family: Comfortaa
+      fonts:
+        - asset: assets/fonts/Comfortaa-Regular.ttf
+        - asset: assets/fonts/Comfortaa-Bold.ttf
+          weight: 700
+  uses-material-design: true
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/resto_image_ios_switch.png"
+  adaptive_icon_foreground: "assets/icons/resto_image_android_switch.png"
+  adaptive_icon_background: "#FFFFFF"
