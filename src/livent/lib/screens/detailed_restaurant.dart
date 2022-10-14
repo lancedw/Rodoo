@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:livent/widgets/buttons/roundedLogRegButton.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:livent/dao/fire_storage.dart';
 import 'package:livent/utils/constants.dart';
@@ -36,22 +36,29 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
 
   fetchAllImages() async {
     List<Widget> result = [];
-    for (int i = 0; i < widget.restaurantData['imageName'].length; i++) {
-      String url = await FireStorageService.loadImage(
-          context, widget.restaurantData['imageName'][i]);
-      PhotoView photoView =
-          PhotoView(imageProvider: NetworkImage(url)); // extended image widget
+    // for (int i = 0; i < widget.restaurantData['imageName'].length; i++) {
+    //   String url = await FireStorageService.loadImage(
+    //       context, widget.restaurantData['imageName'][i]);
+    // PhotoView photoView =
+    // PhotoView(imageProvider: NetworkImage(url)); // extended image widget
+    for (int i = 1; i < 4; i++) {
+      Image img = await FireStorageService.getImage(
+          context, "${widget.restaurantData['imageName']}$i.jpeg");
+      PhotoView photoView = PhotoView(
+          imageProvider: AssetImage("${widget.restaurantData['imageName']}${[
+        i
+      ]}.jpeg")); // extended image widget
       images.add(photoView);
       Container container = Container(
         height: MediaQuery.of(context).size.width * 0.5,
         width: MediaQuery.of(context).size.width,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.network(
-            url,
-            fit: BoxFit.cover,
-          ),
-        ),
+            borderRadius: BorderRadius.circular(8),
+            // child: Image.network(
+            //   url,
+            //   fit: BoxFit.cover,
+            // ),
+            child: img),
       );
       result.add(container);
     }
@@ -74,7 +81,7 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          widget.restaurantData['name'],
+          widget.restaurantData['Name'],
           style: appBarTextStyle,
         ),
       ),
@@ -103,8 +110,48 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.restaurantData['name'],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.restaurantData['Name'],
+                        style: restoNameTextStyle,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Icon(
+                        Icons.star,
+                        size: 20,
+                      ),
+                      Text(
+                        widget.restaurantData['Rating'].toString(),
+                        style: ratingTextStyle,
+                      )
+                    ],
+                  ),
+                  Text(
+                    widget.restaurantData['Address'],
+                  ),
+                  RoundedLogRegButton(
+                    color: rodoRose,
+                    buttonTitle: "Reserve Table",
+                    onPressed: () => {},
+                  ),
+                  RoundedLogRegButton(
+                    color: rodoRose,
+                    buttonTitle: "View Menu",
+                    onPressed: () => {},
+                  ),
+                  const Text(
+                    "Location",
+                    style: restoNameTextStyle,
+                  )
+                ],
               ),
             ),
             GestureDetector(
@@ -112,8 +159,10 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                 decoration:
                     BoxDecoration(border: Border.all(color: Colors.black)),
                 height: 260,
-                child: const Text(
-                  "*Google maps placeholder*",
+                child: const Center(
+                  child: Text(
+                    "*Google maps placeholder*",
+                  ),
                 ),
               ),
             ),

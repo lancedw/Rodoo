@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:livent/dao/fire_storage.dart';
-// import 'package:livent/screens/detailed_restaurant.dart';
+import 'package:livent/screens/detailed_restaurant.dart';
 import 'package:livent/utils/constants.dart';
-
-import '../screens/detailed_restaurant.dart';
 
 class RestoWidget extends StatelessWidget {
   RestoWidget({Key? key}) : super(key: key);
@@ -36,8 +34,13 @@ class RestoWidget extends StatelessWidget {
                 document.data()! as Map<String, dynamic>;
             return GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, DetailedRestaurant.route,
-                    arguments: data);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DetailedRestaurant(
+                      restaurantData: data,
+                    ),
+                  ),
+                );
               },
               child: Container(
                 padding: const EdgeInsets.all(14),
@@ -60,7 +63,7 @@ class RestoWidget extends StatelessWidget {
                             );
                           } else if (snapshot.hasError) {
                             return const Center(
-                              child: Text("Error"),
+                              child: Text("Error loading image"),
                             );
                           } else {
                             return const Center(
