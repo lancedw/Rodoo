@@ -45,9 +45,10 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
       Image img = await FireStorageService.getImage(
           context, "${widget.restaurantData['imageName']}$i.jpeg");
       PhotoView photoView = PhotoView(
-          imageProvider: AssetImage("${widget.restaurantData['imageName']}${[
-        i
-      ]}.jpeg")); // extended image widget
+        imageProvider: AssetImage(
+          "${widget.restaurantData['imageName']}${[i]}.jpeg",
+        ),
+      ); // extended image widget
       images.add(photoView);
       Container container = Container(
         height: MediaQuery.of(context).size.width * 0.5,
@@ -154,18 +155,21 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                 ],
               ),
             ),
-            GestureDetector(
-              child: Container(
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.black)),
-                height: 260,
-                child: const Center(
-                  child: Text(
-                    "*Google maps placeholder*",
-                  ),
-                ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+              ),
+              height: 260,
+              child: Image.asset(
+                'assets/images/maps.jpg',
+                fit: BoxFit.cover,
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 20,
+              ),
+            )
           ]),
         ),
       ),
