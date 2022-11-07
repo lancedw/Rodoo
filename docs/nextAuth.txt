@@ -1,0 +1,5 @@
+2 euro per user
+Minimum 10.000 users per jaar worden aangerekend
+Users per jaar geteld, gereset elk jaar
+Docker container server on premise (cloud mogelijk)
+Multi platform (Apple, Android, ...)
