@@ -90,22 +90,21 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 14),
           child: ListView(children: <Widget>[
-            Container(
-              child: GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                  context,
-                  FullscreenCarousel.route,
-                  arguments: images,
-                ),
-                child: Hero(
-                  tag: 'carouselSlider',
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      aspectRatio: 2.0,
-                      viewportFraction: 1,
-                    ),
-                    items: carouselWidgets,
+            //TODO: fix route generator for full screen view
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(
+                context,
+                FullscreenCarousel.route,
+                arguments: images,
+              ),
+              child: Hero(
+                tag: 'carouselSlider',
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 2.0,
+                    viewportFraction: 1,
                   ),
+                  items: carouselWidgets,
                 ),
               ),
             ),
@@ -151,25 +150,63 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                   const Text(
                     "Location",
                     style: restoNameTextStyle,
+                  ),
+                  Text(
+                    // data['Address'].join(' • '),
+                    widget.restaurantData['Address'],
+                    style: generalTextStyle,
                   )
                 ],
               ),
             ),
             Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-              ),
+              decoration: const BoxDecoration(
+                  // border: Border.all(color: Colors.black),
+                  // borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
               height: 260,
-              child: Image.asset(
-                'assets/images/maps.jpg',
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                child: Image.asset(
+                  'assets/images/maps.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const Padding(
               padding: EdgeInsets.only(
-                top: 20,
+                top: 15,
               ),
-            )
+            ),
+            const Text(
+              "Experiences",
+              style: restoNameTextStyle,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 7,
+              ),
+            ),
+            Column(
+              children: const [
+                Text(
+                  "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
+                ),
+                SizedBox(height: 7),
+                Text(
+                  "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
+                ),
+                SizedBox(height: 7),
+                Text(
+                  "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
+                ),
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 15,
+              ),
+            ),
           ]),
         ),
       ),

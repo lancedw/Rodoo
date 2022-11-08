@@ -47,7 +47,7 @@ class RestoWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       height: MediaQuery.of(context).size.width * 0.5,
                       width: MediaQuery.of(context).size.width,
                       child: FutureBuilder<Image>(
@@ -80,30 +80,57 @@ class RestoWidget extends StatelessWidget {
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          data['Name'],
-                          style: restoNameTextStyle,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  data['Name'],
+                                  style: restoNameTextStyle,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Icon(
+                                  Icons.star,
+                                  size: 20,
+                                ),
+                                Text(
+                                  data['Rating'].toString(),
+                                  style: ratingTextStyle,
+                                )
+                              ],
+                            ),
+                            Text(
+                              // data['Address'].join(' • '),
+                              data['Address'],
+                              style: generalTextStyle,
+                            ),
+                          ],
                         ),
-                        const SizedBox(
-                          width: 10,
+                        Row(
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                data["is_favorite"]
+                                    ? Icons.favorite_border
+                                    : Icons.favorite,
+                                size: 33,
+                              ),
+                              onPressed: () => {},
+                            ),
+                            const SizedBox(
+                              width: 7,
+                            )
+                          ],
                         ),
-                        const Icon(
-                          Icons.star,
-                          size: 20,
-                        ),
-                        Text(
-                          data['Rating'].toString(),
-                          style: ratingTextStyle,
-                        )
                       ],
                     ),
-                    Text(
-                      // data['Address'].join(' • '),
-                      data['Address'],
-                      style: generalTextStyle,
-                    )
                   ],
                 ),
               ),

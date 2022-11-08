@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         Favorites.route: (context) => Favorites(),
         OrderPay.route: (context) => OrderPay(),
         Notifications.route: (context) => Notifications(),
-        Account.route: (context) => Account(),
+        Account.route: (context) => const Account(),
       },
     );
   }
