@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.Formstyle {
+  padding: 0px;
+  width: 100%;
+
+}
+
+.Textfield {
+  width: 250px;
+  padding-bottom: 12px;
+}
+
 .App-logo {
   height: 5vmin;
   pointer-events: none;
