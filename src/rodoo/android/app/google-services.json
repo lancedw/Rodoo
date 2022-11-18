@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "240007571497",
+    "project_id": "myrodo-92490",
+    "storage_bucket": "myrodo-92490.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240007571497:android:4c0a5d8b609d85f99a9438",
+        "android_client_info": {
+          "package_name": "com.example.livent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240007571497-tvm99mhh5aalpdbt93qgmtbpqc042tos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1k4Fo51tS6o1aDiFKVYUL3gudEy5hUeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240007571497-tvm99mhh5aalpdbt93qgmtbpqc042tos.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "240007571497-h6a8g3eic4mt5be9bvfmajcgl9vaetph.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.livent"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240007571497:android:a8aa2f55e3e4fd559a9438",
+        "android_client_info": {
+          "package_name": "com.example.rodoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240007571497-tvm99mhh5aalpdbt93qgmtbpqc042tos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1k4Fo51tS6o1aDiFKVYUL3gudEy5hUeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240007571497-tvm99mhh5aalpdbt93qgmtbpqc042tos.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "240007571497-h6a8g3eic4mt5be9bvfmajcgl9vaetph.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.livent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

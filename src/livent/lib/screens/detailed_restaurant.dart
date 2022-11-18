@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:livent/widgets/buttons/roundedLogRegButton.dart';
+import 'package:Rodoo/widgets/buttons/roundedLogRegButton.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:livent/dao/fire_storage.dart';
-import 'package:livent/utils/constants.dart';
-import 'package:livent/widgets/fullscreen_carousel.dart';
+import 'package:Rodoo/dao/fire_storage.dart';
+import 'package:Rodoo/utils/constants.dart';
+import 'package:Rodoo/widgets/fullscreen_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 //TODO: optimize loading and pass the first loaded image from the resto_card directly
