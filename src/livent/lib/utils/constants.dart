@@ -6,6 +6,8 @@ const Color rodoRose = Color(0xFFFB9FD6);
 
 const Color kPrimaryColor = rodoRose;
 
+const kDebugMode = true;
+
 const String assetName = 'assets/icons/RestoIcon.svg';
 final Widget restoIconSmall = SvgPicture.asset(
   assetName,

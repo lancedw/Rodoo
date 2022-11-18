@@ -18,12 +18,16 @@ class RestoWidget extends StatelessWidget {
           return Text(
             'Something went wrong trying to build firestore stream: ${snapshot.error}',
           );
+        } else {
+          if (kDebugMode) {
+            print(snapshot);
+          }
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(
-              color: rodoRose,
+              color: kPrimaryColor,
             ),
           );
         }
@@ -53,7 +57,8 @@ class RestoWidget extends StatelessWidget {
                       child: FutureBuilder<Image>(
                         future: FireStorageService.getImage(
                           context,
-                          data['imageName'] + "1.jpeg",
+                          //TODO: fix file type issue -> jpg, jpeg, png, ...
+                          "${data['image_name']}1.jpeg",
                         ),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
@@ -68,7 +73,7 @@ class RestoWidget extends StatelessWidget {
                           } else {
                             return const Center(
                               child: CircularProgressIndicator(
-                                color: rodoRose,
+                                color: kPrimaryColor,
                               ),
                             );
                           }
@@ -90,7 +95,7 @@ class RestoWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  data['Name'],
+                                  data['name'],
                                   style: restoNameTextStyle,
                                 ),
                                 const SizedBox(
@@ -101,14 +106,14 @@ class RestoWidget extends StatelessWidget {
                                   size: 20,
                                 ),
                                 Text(
-                                  data['Rating'].toString(),
+                                  data['rating'].toString(),
                                   style: ratingTextStyle,
                                 )
                               ],
                             ),
                             Text(
                               // data['Address'].join(' • '),
-                              data['Address'],
+                              "${data['street']} ${data['street_number']}",
                               style: generalTextStyle,
                             ),
                           ],
@@ -118,8 +123,8 @@ class RestoWidget extends StatelessWidget {
                             IconButton(
                               icon: Icon(
                                 data["is_favorite"]
-                                    ? Icons.favorite_border
-                                    : Icons.favorite,
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
                                 size: 33,
                               ),
                               onPressed: () => {},

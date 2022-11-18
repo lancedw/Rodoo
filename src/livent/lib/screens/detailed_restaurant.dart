@@ -41,12 +41,13 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
     //       context, widget.restaurantData['imageName'][i]);
     // PhotoView photoView =
     // PhotoView(imageProvider: NetworkImage(url)); // extended image widget
+    //TODO: remove hard-coded no. images and change to available no. images
     for (int i = 1; i < 4; i++) {
       Image img = await FireStorageService.getImage(
-          context, "${widget.restaurantData['imageName']}$i.jpeg");
+          context, "${widget.restaurantData['image_name']}$i.jpeg");
       PhotoView photoView = PhotoView(
         imageProvider: AssetImage(
-          "${widget.restaurantData['imageName']}${[i]}.jpeg",
+          "${widget.restaurantData['image_name']}${[i]}.jpeg",
         ),
       ); // extended image widget
       images.add(photoView);
@@ -82,7 +83,7 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          widget.restaurantData['Name'],
+          widget.restaurantData['name'],
           style: appBarTextStyle,
         ),
       ),
@@ -118,7 +119,7 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        widget.restaurantData['Name'],
+                        widget.restaurantData['name'],
                         style: restoNameTextStyle,
                       ),
                       const SizedBox(
@@ -129,13 +130,13 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                         size: 20,
                       ),
                       Text(
-                        widget.restaurantData['Rating'].toString(),
+                        widget.restaurantData['rating'].toString(),
                         style: ratingTextStyle,
                       )
                     ],
                   ),
                   Text(
-                    widget.restaurantData['Address'],
+                    "${widget.restaurantData['street']} ${widget.restaurantData['street_number']}",
                   ),
                   RoundedLogRegButton(
                     color: rodoRose,
@@ -153,7 +154,7 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                   ),
                   Text(
                     // data['Address'].join(' • '),
-                    widget.restaurantData['Address'],
+                    "${widget.restaurantData['street']} ${widget.restaurantData['street_number']}",
                     style: generalTextStyle,
                   )
                 ],

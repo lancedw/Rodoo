@@ -6,7 +6,7 @@ import './App.css';
 import {initializeApp} from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 import {collection, addDoc} from "firebase/firestore";
-import {Button} from "@mui/material";
+import {Button, FormControlLabel, FormGroup, Switch} from "@mui/material";
 
 const firebaseConfig = {
     apiKey: "AIzaSyANgfQsAVKczON6ZX7lCM-giW8vUdr24_s",
@@ -21,19 +21,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function add_document() {
+async function add_document(data) {
     try {
-        const docRef = await addDoc(collection(db, "restaurants"), {
-            city: "Gent",
-            country: "Belgium",
-            image_name: "caferene",
-            is_favorite: false,
-            name: "Café René",
-            postal_code: "9000",
-            rating: "4.3",
-            street: "Geostreet",
-            street_number: "27",
-        });
+        const docRef = await addDoc(collection(db, "restaurants"), data);
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
         console.error("Error adding document: ", e);
@@ -41,11 +31,11 @@ async function add_document() {
 }
 
 function App() {
+    let data = {}
     let form_fields = [
         {label: "City", tag: "city", default: "Gent"},
         {label: "Country", tag: "country", default: "Belgium"},
         {label: "Image Name", tag: "image_name", default: "caferene"},
-        {label: "Favorite", tag: "is_favorite", default: "false"},
         {label: "Name", tag: "name", default: "Café René"},
         {label: "Postal Code", tag: "postal_code", default: "9000"},
         {label: "Rating", tag: "rating", default: "4.3"},
@@ -64,23 +54,39 @@ function App() {
     //     street_number: "27",
     // }
 
+    const handleChange = (event, tag) => {
+        data[tag] = event.target.value;
+    }
+
     return (
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
             </header>
             <body>
-            <form className="Formstyle">
-                {form_fields.map(field => (
-                    <div className="Textfield">
-                        <TextField
-                            id={field.tag}
-                            label={field.label}
-                            defaultValue={field.default}/>
-                    </div>
-                ))}
-            </form>
-            <Button onClick={(event) => add_document}>Add Document</Button>
+            <FormGroup>
+                {form_fields.map(field => {
+                    data[field.tag] = field.default;
+                    return (
+                        <div className="Textfield">
+                            <TextField
+                                id={field.tag}
+                                label={field.label}
+                                defaultValue={field.default}
+                                onChange={event => handleChange(event, field.tag)}
+                            />
+                        </div>
+                    );
+                })}
+                <FormControlLabel
+                    control={<Switch/>}
+                    label="Favorite"
+                    checked={false}
+                    onChange={(event) =>
+                        data["is_favorite"] = event.target.checked
+                    }/>
+            </FormGroup>
+            <Button onClick={(event) => add_document(data)}>Add Document</Button>
             </body>
         </div>
     );
