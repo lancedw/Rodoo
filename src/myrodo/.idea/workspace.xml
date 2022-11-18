@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1804fe44-37f7-4a05-86b8-97a886f0babd" name="Default Changelist" comment="initial commit myrodo webapp">
-      <change beforePath="$PROJECT_DIR$/../livent/assets/images/baracca_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../livent/assets/images/baracca1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../livent/assets/images/baracca_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../livent/assets/images/baracca2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../livent/lib/screens/detailed_restaurant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../livent/lib/screens/detailed_restaurant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../livent/lib/utils/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../livent/lib/utils/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../livent/lib/widgets/resto_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../livent/lib/widgets/resto_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +65,7 @@
       <workItem from="1665751810946" duration="1913000" />
       <workItem from="1666788378471" duration="636000" />
       <workItem from="1668090071361" duration="5350000" />
-      <workItem from="1668762014185" duration="4333000" />
+      <workItem from="1668762014185" duration="5135000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit myrodo webapp">
       <created>1665753665883</created>

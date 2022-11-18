@@ -6,7 +6,7 @@ import './App.css';
 import {initializeApp} from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 import {collection, addDoc} from "firebase/firestore";
-import {Button, FormControlLabel, FormGroup, Switch} from "@mui/material";
+import {Button, FormControlLabel, Switch} from "@mui/material";
 
 const firebaseConfig = {
     apiKey: "AIzaSyANgfQsAVKczON6ZX7lCM-giW8vUdr24_s",
@@ -32,6 +32,7 @@ async function add_document(data) {
 
 function App() {
     let data = {}
+    let checked = false;
     let form_fields = [
         {label: "City", tag: "city", default: "Gent"},
         {label: "Country", tag: "country", default: "Belgium"},
@@ -64,7 +65,7 @@ function App() {
                 <img src={logo} className="App-logo" alt="logo"/>
             </header>
             <body>
-            <FormGroup>
+            <form>
                 {form_fields.map(field => {
                     data[field.tag] = field.default;
                     return (
@@ -81,11 +82,11 @@ function App() {
                 <FormControlLabel
                     control={<Switch/>}
                     label="Favorite"
-                    checked={false}
-                    onChange={(event) =>
-                        data["is_favorite"] = event.target.checked
-                    }/>
-            </FormGroup>
+                    onChange={(event) => {
+                        checked = !checked;
+                        data["is_favorite"] = event.target.checked;
+                    }}/>
+            </form>
             <Button onClick={(event) => add_document(data)}>Add Document</Button>
             </body>
         </div>
