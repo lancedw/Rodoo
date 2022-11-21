@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>240007571497-h6a8g3eic4mt5be9bvfmajcgl9vaetph.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.240007571497-h6a8g3eic4mt5be9bvfmajcgl9vaetph</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAVkCIUJarVazcItaYlDOBXQdwMj0SdhJ0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>240007571497</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.livent</string>
+	<key>PROJECT_ID</key>
+	<string>myrodo-92490</string>
+	<key>STORAGE_BUCKET</key>
+	<string>myrodo-92490.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:240007571497:ios:4185879962147c9a9a9438</string>
+</dict>
+</plist>
