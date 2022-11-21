@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/date_helper.dart';
 import 'package:rodoo/utils/constants.dart';
-import 'package:rodoo/widgets/resto_card.dart';
+import 'package:rodoo/widgets/home_listview_builder.dart';
 import 'dart:io' show Platform;
 
 class Home extends StatefulWidget {
