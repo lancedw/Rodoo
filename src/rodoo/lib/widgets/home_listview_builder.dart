@@ -5,14 +5,9 @@ import 'package:rodoo/screens/detailed_restaurant.dart';
 import 'package:rodoo/utils/constants.dart';
 import 'package:rodoo/widgets/buttons/icon_togglebutton.dart';
 
-class RestoWidget extends StatefulWidget {
-  const RestoWidget({Key? key}) : super(key: key);
+class RestoWidget extends StatelessWidget {
+  RestoWidget({Key? key}) : super(key: key);
 
-  @override
-  State<RestoWidget> createState() => _RestoWidgetState();
-}
-
-class _RestoWidgetState extends State<RestoWidget> {
   final Stream<QuerySnapshot> _usersStream =
       FirebaseFirestore.instance.collection('restaurants').snapshots();
 
@@ -129,24 +124,9 @@ class _RestoWidgetState extends State<RestoWidget> {
                               iconSize: 33,
                               isEnabled: true,
                               selected: data["is_favorite"],
+                              documentId: document.id,
                             ),
-                            // IconButton(
-                            //   key: Key(document.id),
-                            //   icon: Icon(
-                            //     data["is_favorite"]
-                            //         ? Icons.favorite
-                            //         : Icons.favorite_border,
-                            //   ),
-                            //   iconSize: 33,
-                            //   onPressed: () => {
-                            //     // FirebaseFirestore.instance
-                            //     //     .collection('restaurants')
-                            //     //     .doc(document.id)
-                            //     //     .set({'is_favorite': "dummy"});
-                            //     // setState(() {});
-                            //   },
-                            // ),
-                            SizedBox(
+                            const SizedBox(
                               width: 7,
                             )
                           ],
