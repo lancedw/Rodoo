@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/date_helper.dart';
 import 'package:rodoo/utils/constants.dart';
 import 'package:rodoo/widgets/home_listview_builder.dart';
 import 'dart:io' show Platform;
 
+import 'account.dart';
+
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -51,11 +54,14 @@ class _HomeState extends State<Home> {
                         color: kPrimaryColor,
                       ),
                     ),
-                    GestureDetector(
-                      child: const Icon(
-                        Icons.search,
-                        size: 30,
+                    IconButton(
+                      icon: const Icon(
+                        Icons.person_outlined,
+                        size: 32,
                       ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, Account.route);
+                      },
                     )
                   ],
                 ),
@@ -64,7 +70,7 @@ class _HomeState extends State<Home> {
                 preferredSize: const Size.fromHeight(50),
                 child: Container(
                   // top padding is to make sure that Rodo fully disappears
-                  padding: const EdgeInsets.only(top: 2, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 2, left: 20, right: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -81,17 +87,20 @@ class _HomeState extends State<Home> {
                         label: Text(
                           '2 • Now',
                           style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: Colors.black),
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
-                      GestureDetector(
-                        child: const Icon(
+                      IconButton(
+                        icon: const Icon(
                           Icons.filter_alt_outlined,
                           color: kPrimaryColor,
+                          size: 32,
                         ),
+                        onPressed: () {},
                       )
                     ],
                   ),

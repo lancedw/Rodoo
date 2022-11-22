@@ -14,11 +14,10 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
         elevation: 0,
         title: const Text(
           "Search",
-          style: appBarTextStyle,
         ),
       ),
     );

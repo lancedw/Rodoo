@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:rodoo/screens/account.dart';
+import 'package:rodoo/screens/login.dart';
 import 'package:rodoo/screens/search.dart';
 import 'package:rodoo/screens/order_pay.dart';
 import 'package:rodoo/screens/root.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         Root.route: (context) => Root(),
         Search.route: (context) => Search(),
         OrderPay.route: (context) => OrderPay(),
-        Account.route: (context) => const Account(),
+        Account.route: (context) => Account(),
+        LoginPage.route: (context) => LoginPage(),
       },
     );
   }

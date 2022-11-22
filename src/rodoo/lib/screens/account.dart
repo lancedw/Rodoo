@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rodoo/widgets/buttons/rounded_button.dart';
 
 import '../utils/constants.dart';
+import 'login.dart';
 
 class Account extends StatefulWidget {
   const Account({Key? key}) : super(key: key);
@@ -23,8 +25,14 @@ class _AccountState extends State<Account> {
           style: appBarTextStyle,
         ),
       ),
-      body: const Center(
-        child: Text('*Login and registrations page*'),
+      body: Center(
+        child: RoundedLogRegButton(
+          color: kPrimaryColor,
+          buttonTitle: "Login",
+          onPressed: () {
+            Navigator.pushNamed(context, LoginPage.route);
+          },
+        ),
       ),
     );
   }
