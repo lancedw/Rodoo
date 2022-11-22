@@ -28,7 +28,7 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
       width: MediaQuery.of(context).size.width,
       child: const Center(
         child: CircularProgressIndicator(
-          color: rodoRose,
+          color: kPrimaryColor,
         ),
       ),
     ),
@@ -139,12 +139,12 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                     "${widget.restaurantData['street']} ${widget.restaurantData['street_number']}",
                   ),
                   RoundedLogRegButton(
-                    color: rodoRose,
+                    color: kPrimaryColor,
                     buttonTitle: "Reserve Table",
                     onPressed: () => {},
                   ),
                   RoundedLogRegButton(
-                    color: rodoRose,
+                    color: kPrimaryColor,
                     buttonTitle: "View Menu",
                     onPressed: () => {},
                   ),

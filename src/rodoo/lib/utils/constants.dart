@@ -53,7 +53,7 @@ const textFieldDecoration = InputDecoration(
 );
 
 const appBarTextStyle = TextStyle(
-  color: rodoRose,
+  color: kPrimaryColor,
   fontSize: 23,
   fontFamily: 'Montserrat',
   fontWeight: FontWeight.bold,

@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/constants.dart';
 
-class Favorites extends StatefulWidget {
+class Search extends StatefulWidget {
   static const String route = '/favorites';
 
   @override
-  _FavoritesState createState() => _FavoritesState();
+  _SearchState createState() => _SearchState();
 }
 
-class _FavoritesState extends State<Favorites> {
+class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _FavoritesState extends State<Favorites> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: const Text(
-          "Favorites",
+          "Search",
           style: appBarTextStyle,
         ),
       ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/constants.dart';
-import 'package:rodoo/screens/order-pay.dart';
-import 'package:rodoo/screens/favorites.dart';
+import 'package:rodoo/screens/order_pay.dart';
+import 'package:rodoo/screens/search.dart';
 import 'package:rodoo/screens/home.dart';
-import 'package:rodoo/screens/notifications.dart';
 import 'package:rodoo/screens/account.dart';
 
 class Root extends StatefulWidget {
@@ -20,13 +19,7 @@ class _RootState extends State<Root> {
   PageController pageController = PageController();
 
   // list of widgets with different screens, must be in same order as nav bar icons
-  List<Widget> screens = [
-    Home(),
-    Favorites(),
-    OrderPay(),
-    Notifications(),
-    Account()
-  ];
+  List<Widget> screens = [Home(), OrderPay(), Search()];
 
   void onPageChanged(int index) {
     setState(() {
@@ -61,28 +54,13 @@ class _RootState extends State<Root> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              selectedIndex == 1 ? Icons.favorite : Icons.favorite_border_sharp,
-              size: 30,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-              icon: selectedIndex == 2 ? restoIconBig : restoIconSmall,
-              label: ''),
-          BottomNavigationBarItem(
-            icon: Icon(
-              selectedIndex == 3
-                  ? Icons.notifications
-                  : Icons.notifications_outlined,
-              size: 30,
-            ),
+            icon: selectedIndex == 1 ? restoIconBig : restoIconSmall,
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              selectedIndex == 4 ? Icons.person : Icons.person_outline,
-              size: 30,
+              Icons.search,
+              size: selectedIndex == 2 ? 35 : 30,
             ),
             label: '',
           ),

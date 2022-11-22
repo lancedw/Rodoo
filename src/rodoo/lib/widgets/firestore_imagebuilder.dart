@@ -8,8 +8,9 @@ class FirestoreImageBuilder extends StatelessWidget {
   final bool interactable;
   final double radius;
 
-  FirestoreImageBuilder(
-      {required this.imageArray,
+  const FirestoreImageBuilder(
+      {super.key,
+      required this.imageArray,
       required this.index,
       required this.interactable,
       required this.radius});
@@ -37,7 +38,7 @@ class FirestoreImageBuilder extends StatelessWidget {
               } else {
                 return const Center(
                   child: CircularProgressIndicator(
-                    color: rodoRose,
+                    color: kPrimaryColor,
                   ),
                 );
               }

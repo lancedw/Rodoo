@@ -7,7 +7,7 @@ class FullscreenCarousel extends StatelessWidget {
   static const String route = '/fullscreen';
   final List<Widget> imageArray;
 
-  const FullscreenCarousel({required this.imageArray});
+  const FullscreenCarousel({super.key, required this.imageArray});
 
   @override
   Widget build(BuildContext context) {

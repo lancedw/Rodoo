@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:rodoo/screens/account.dart';
-import 'package:rodoo/screens/favorites.dart';
-import 'package:rodoo/screens/notifications.dart';
-import 'package:rodoo/screens/order-pay.dart';
+import 'package:rodoo/screens/search.dart';
+import 'package:rodoo/screens/order_pay.dart';
 import 'package:rodoo/screens/root.dart';
 import 'package:rodoo/utils/theme.dart';
 
@@ -29,9 +28,8 @@ class MyApp extends StatelessWidget {
       initialRoute: Root.route,
       routes: {
         Root.route: (context) => Root(),
-        Favorites.route: (context) => Favorites(),
+        Search.route: (context) => Search(),
         OrderPay.route: (context) => OrderPay(),
-        Notifications.route: (context) => Notifications(),
         Account.route: (context) => const Account(),
       },
     );

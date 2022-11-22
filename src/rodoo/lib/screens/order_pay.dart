@@ -10,7 +10,7 @@ class OrderPay extends StatefulWidget {
 class _OrderPayState extends State<OrderPay> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Image(
           width: 400,
