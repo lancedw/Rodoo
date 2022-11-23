@@ -79,7 +79,7 @@ class RestoWidget extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 8,
+                      height: 4,
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

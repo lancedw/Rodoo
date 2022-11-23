@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:rodoo/widgets/firestore_imagebuilder.dart';
 
 class FullscreenCarousel extends StatelessWidget {
   static const String route = '/fullscreen';
@@ -22,7 +20,7 @@ class FullscreenCarousel extends StatelessWidget {
                 height: MediaQuery.of(context).size.height,
               ),
               items: imageArray.map((image) {
-                return Container(
+                return SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: image,

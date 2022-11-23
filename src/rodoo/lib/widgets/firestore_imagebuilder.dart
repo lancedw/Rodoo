@@ -19,31 +19,29 @@ class FirestoreImageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(
       builder: (BuildContext context) {
-        return Container(
-          child: FutureBuilder<Image>(
-            future: FireStorageService.getImage(
-              context,
-              imageArray[index],
-            ),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(radius),
-                  child: snapshot.data,
-                );
-              } else if (snapshot.hasError) {
-                return const Center(
-                  child: Text("Error"),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(
-                    color: kPrimaryColor,
-                  ),
-                );
-              }
-            },
+        return FutureBuilder<Image>(
+          future: FireStorageService.getImage(
+            context,
+            imageArray[index],
           ),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(radius),
+                child: snapshot.data,
+              );
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: Text("Error"),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: kPrimaryColor,
+                ),
+              );
+            }
+          },
         );
       },
     );

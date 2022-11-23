@@ -3,10 +3,11 @@ import 'package:rodoo/utils/constants.dart';
 import 'package:rodoo/screens/order_pay.dart';
 import 'package:rodoo/screens/search.dart';
 import 'package:rodoo/screens/home.dart';
-import 'package:rodoo/screens/account.dart';
 
 class Root extends StatefulWidget {
   static const String route = '/';
+
+  const Root({super.key});
 
   @override
   _RootState createState() => _RootState();
@@ -49,7 +50,7 @@ class _RootState extends State<Root> {
           BottomNavigationBarItem(
             icon: Icon(
               selectedIndex == 0 ? Icons.home_rounded : Icons.home_outlined,
-              size: 30,
+              size: 38,
             ),
             label: '',
           ),
@@ -60,7 +61,7 @@ class _RootState extends State<Root> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              size: selectedIndex == 2 ? 35 : 30,
+              size: selectedIndex == 2 ? 42 : 38,
             ),
             label: '',
           ),

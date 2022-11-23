@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class RoundedLogRegButton extends StatelessWidget {
-  Color color;
-  String buttonTitle;
-  VoidCallback onPressed;
+  final Color color;
+  final String buttonTitle;
+  final VoidCallback onPressed;
 
-  RoundedLogRegButton(
+  const RoundedLogRegButton(
       {super.key,
       required this.color,
       required this.buttonTitle,
@@ -25,7 +25,7 @@ class RoundedLogRegButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             buttonTitle,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ),
       ),

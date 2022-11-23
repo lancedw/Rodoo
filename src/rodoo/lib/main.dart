@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: theme,
       initialRoute: Root.route,
       routes: {
-        Root.route: (context) => Root(),
+        Root.route: (context) => const Root(),
         Search.route: (context) => const Search(),
         OrderPay.route: (context) => OrderPay(),
         Account.route: (context) => const Account(),
