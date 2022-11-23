@@ -8,6 +8,7 @@ import 'account.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
+  static const String route = '/home';
 
   @override
   _HomeState createState() => _HomeState();

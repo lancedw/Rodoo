@@ -93,11 +93,11 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
           child: ListView(children: <Widget>[
             //TODO: fix route generator for full screen view
             GestureDetector(
-              onTap: () => Navigator.pushNamed(
-                context,
-                FullscreenCarousel.route,
-                arguments: images,
-              ),
+              // onTap: () => Navigator.pushNamed(
+              //   context,
+              //   FullscreenCarousel.route,
+              //   arguments: images,
+              // ),
               child: Hero(
                 tag: 'carouselSlider',
                 child: CarouselSlider(

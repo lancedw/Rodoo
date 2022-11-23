@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
       initialRoute: Root.route,
       routes: {
         Root.route: (context) => Root(),
-        Search.route: (context) => Search(),
+        Search.route: (context) => const Search(),
         OrderPay.route: (context) => OrderPay(),
-        Account.route: (context) => Account(),
-        LoginPage.route: (context) => LoginPage(),
+        Account.route: (context) => const Account(),
+        LoginPage.route: (context) => const LoginPage(),
       },
     );
   }
