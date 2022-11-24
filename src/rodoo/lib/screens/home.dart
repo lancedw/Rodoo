@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/date_helper.dart';
 import 'package:rodoo/utils/constants.dart';
-import 'package:rodoo/widgets/home_listview_builder.dart';
+import 'package:rodoo/widgets/filter_sheet.dart';
+import 'package:rodoo/widgets/home_listview.dart';
 import 'dart:io' show Platform;
 
 import 'account.dart';
@@ -101,7 +102,16 @@ class _HomeState extends State<Home> {
                           color: kPrimaryColor,
                           size: 32,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) => const SafeArea(
+                              child: FilterSheet(),
+                            ),
+                          );
+                        },
                       )
                     ],
                   ),

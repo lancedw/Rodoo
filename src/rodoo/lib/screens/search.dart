@@ -37,6 +37,7 @@ class _SearchState extends State<Search> {
                           ),
                     ),
                     child: TextField(
+                      autofocus: true,
                       style: const TextStyle(
                         fontFamily: "Montserrat",
                         fontSize: 18,
