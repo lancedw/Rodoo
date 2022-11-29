@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-const Color rodoBlue = Color(0xFF00BFFF);
-const Color rodoRose = Color(0xFFFB9FD6);
+const Color rodooBlue = Color(0xFF00BFFF);
+const Color rodooRose = Color(0xFFFB9FD6);
+const Color rodooGrey = Color(0xFF616161);
 
-const Color kPrimaryColor = rodoRose;
+const Color kPrimaryColor = rodooRose;
+const Color kSecondaryColor = rodooGrey;
 
 const kDebugMode = true;
 

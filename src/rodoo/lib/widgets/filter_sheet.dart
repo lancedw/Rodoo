@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/constants.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class FilterSheet extends StatefulWidget {
   const FilterSheet({Key? key}) : super(key: key);
@@ -10,6 +10,12 @@ class FilterSheet extends StatefulWidget {
 }
 
 class _FilterSheetState extends State<FilterSheet> {
+  TextStyle subTitleStyle = const TextStyle(
+    fontSize: 15,
+    fontFamily: "Montserrat",
+    fontWeight: FontWeight.bold,
+  );
+  String sortValue = "Popularity";
   double distanceValue = 10;
   List<bool> price = [false, true, false];
 
@@ -49,21 +55,67 @@ class _FilterSheetState extends State<FilterSheet> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                "Filter options",
+                "Filter",
                 style: restoNameTextStyle,
               ),
               IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.close),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.close,
+                  size: 28,
+                ),
               ),
             ],
           ),
           const SizedBox(
             height: 12,
           ),
-          const Text(
-            "Maximum driving distance",
-            style: generalBoldTextStyle,
+          Text(
+            "Sort By",
+            style: subTitleStyle,
+          ),
+          const SizedBox(height: 8),
+          Center(
+            child: DropdownButton2(
+              isExpanded: true,
+              // to hide underline, we use a dummy sized box as underline widget
+              underline: const SizedBox(height: 0),
+              iconEnabledColor: kPrimaryColor,
+              icon: const Icon(Icons.keyboard_arrow_down),
+              iconSize: 22,
+              buttonPadding: const EdgeInsets.only(right: 12),
+              buttonDecoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                ),
+              ),
+              // itemPadding: EdgeInsets.zero,
+              value: sortValue,
+              items: <String>['Popularity', 'Price', 'Distance']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: generalTextStyle,
+                  ),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  sortValue = value!;
+                });
+              },
+            ),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          Text(
+            "Discovery radius",
+            style: subTitleStyle,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -87,9 +139,9 @@ class _FilterSheetState extends State<FilterSheet> {
               ),
             ],
           ),
-          const Text(
+          Text(
             "Price range",
-            style: generalBoldTextStyle,
+            style: subTitleStyle,
           ),
           const SizedBox(
             height: 12,
@@ -114,10 +166,40 @@ class _FilterSheetState extends State<FilterSheet> {
           const SizedBox(
             height: 12,
           ),
-          const Text(
-            "Food styles",
-            style: generalBoldTextStyle,
+          Text(
+            "Cuisine",
+            style: subTitleStyle,
           ),
+          const SizedBox(
+            height: 12,
+          ),
+          Column(
+            children: ["Italian", "French", "Thai", "Japanese", "Chinese"]
+                .map(
+                    (value) => Column(children: [Text(value), const Divider()]))
+                .toList(),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          SizedBox(
+            height: 44,
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Apply filters",
+                style: generalTextStyle.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

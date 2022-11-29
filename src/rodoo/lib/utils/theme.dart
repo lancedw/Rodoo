@@ -5,6 +5,7 @@ import 'constants.dart';
 final ThemeData theme = ThemeData(
   primaryColorLight: kPrimaryColor,
   secondaryHeaderColor: CupertinoColors.black,
+  fontFamily: "Montserrat",
   inputDecorationTheme: const InputDecorationTheme(
     hintStyle: TextStyle(
       color: Colors.grey,

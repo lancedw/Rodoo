@@ -80,7 +80,7 @@ class _SearchState extends State<Search> {
               Icon(
                 Icons.search,
                 size: 50,
-                color: Color(0xFF616161),
+                color: kSecondaryColor,
               ),
               SizedBox(
                 width: 220,
