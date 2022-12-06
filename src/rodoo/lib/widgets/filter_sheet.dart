@@ -50,6 +50,7 @@ class _FilterSheetState extends State<FilterSheet> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,119 +70,155 @@ class _FilterSheetState extends State<FilterSheet> {
               ),
             ],
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            "Sort By",
-            style: subTitleStyle,
-          ),
-          const SizedBox(height: 8),
-          Center(
-            child: DropdownButton2(
-              isExpanded: true,
-              // to hide underline, we use a dummy sized box as underline widget
-              underline: const SizedBox(height: 0),
-              iconEnabledColor: kPrimaryColor,
-              icon: const Icon(Icons.keyboard_arrow_down),
-              iconSize: 22,
-              buttonPadding: const EdgeInsets.only(right: 12),
-              buttonDecoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
+          const SizedBox(height: 12),
+          Flexible(
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: [
+                Text(
+                  "Sort By",
+                  style: subTitleStyle,
                 ),
-              ),
-              // itemPadding: EdgeInsets.zero,
-              value: sortValue,
-              items: <String>['Popularity', 'Price', 'Distance']
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: generalTextStyle,
+                const SizedBox(height: 8),
+                Center(
+                  child: DropdownButton2(
+                    isExpanded: true,
+                    // to hide underline, we use a dummy sized box as underline widget
+                    underline: const SizedBox(height: 0),
+                    iconEnabledColor: kPrimaryColor,
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    iconSize: 22,
+                    buttonPadding: const EdgeInsets.only(right: 12),
+                    buttonDecoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    // itemPadding: EdgeInsets.zero,
+                    value: sortValue,
+                    items: <String>['Popularity', 'Price', 'Distance']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(
+                          value,
+                          style: generalTextStyle,
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        sortValue = value!;
+                      });
+                    },
                   ),
-                );
-              }).toList(),
-              onChanged: (value) {
-                setState(() {
-                  sortValue = value!;
-                });
-              },
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  "Discovery radius",
+                  style: subTitleStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      "${distanceValue.toInt().toString()} km",
+                      style: generalTextStyle,
+                    ),
+                    Slider(
+                      activeColor: kPrimaryColor,
+                      label: "${distanceValue.toInt().toString()} km",
+                      min: 0,
+                      max: 100,
+                      divisions: 50,
+                      value: distanceValue,
+                      onChanged: (double val) {
+                        setState(() {
+                          distanceValue = val;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Text(
+                  "Price range",
+                  style: subTitleStyle,
+                ),
+                const SizedBox(height: 12),
+                Center(
+                  child: ToggleButtons(
+                    isSelected: price,
+                    selectedColor: kPrimaryColor,
+                    fillColor: Colors.white,
+                    splashColor: Colors.white,
+                    onPressed: (int index) {
+                      setState(() {
+                        for (int i = 0; i < price.length; i += 1) {
+                          price[i] = false;
+                        }
+                        price[index] = true;
+                      });
+                    },
+                    children: generateButtons(price),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  "Cuisine",
+                  style: subTitleStyle,
+                ),
+                const SizedBox(height: 12),
+                Column(
+                  children: [
+                    "Italian",
+                    "French",
+                    "Thai",
+                    "Japanese",
+                    "Chinese",
+                  ]
+                      .map((value) => Column(children: [
+                            const Divider(),
+                            Text(
+                              value,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ]))
+                      .toList(),
+                ),
+                const Divider(),
+                const SizedBox(height: 12),
+                Text(
+                  "Food and dishes",
+                  style: subTitleStyle,
+                ),
+                const SizedBox(height: 12),
+                Column(
+                  children: [
+                    "Pizza",
+                    "Sushi",
+                    "Burgers",
+                    "Salads",
+                    "Healthy",
+                  ]
+                      .map((value) => Column(children: [
+                            const Divider(),
+                            Text(
+                              value,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ]))
+                      .toList(),
+                ),
+                const Divider(),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            "Discovery radius",
-            style: subTitleStyle,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "${distanceValue.toInt().toString()} km",
-                style: generalTextStyle,
-              ),
-              Slider(
-                activeColor: kPrimaryColor,
-                label: "${distanceValue.toInt().toString()} km",
-                min: 0,
-                max: 100,
-                divisions: 50,
-                value: distanceValue,
-                onChanged: (double val) {
-                  setState(() {
-                    distanceValue = val;
-                  });
-                },
-              ),
-            ],
-          ),
-          Text(
-            "Price range",
-            style: subTitleStyle,
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Center(
-            child: ToggleButtons(
-              isSelected: price,
-              selectedColor: kPrimaryColor,
-              fillColor: Colors.white,
-              splashColor: Colors.white,
-              onPressed: (int index) {
-                setState(() {
-                  for (int i = 0; i < price.length; i += 1) {
-                    price[i] = false;
-                  }
-                  price[index] = true;
-                });
-              },
-              children: generateButtons(price),
-            ),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Text(
-            "Cuisine",
-            style: subTitleStyle,
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Column(
-            children: ["Italian", "French", "Thai", "Japanese", "Chinese"]
-                .map(
-                    (value) => Column(children: [Text(value), const Divider()]))
-                .toList(),
-          ),
-          const SizedBox(
-            height: 12,
-          ),
+          const SizedBox(height: 12),
           SizedBox(
             height: 44,
             child: TextButton(

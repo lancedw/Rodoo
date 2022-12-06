@@ -3,6 +3,7 @@ import 'package:rodoo/utils/date_helper.dart';
 import 'package:rodoo/utils/constants.dart';
 import 'package:rodoo/widgets/filter_sheet.dart';
 import 'package:rodoo/widgets/home_listview.dart';
+import 'package:rodoo/widgets/who_when_sheet.dart';
 import 'dart:io' show Platform;
 
 import 'account.dart';
@@ -73,47 +74,59 @@ class _HomeState extends State<Home> {
                 child: Container(
                   // top padding is to make sure that Rodo fully disappears
                   padding: const EdgeInsets.only(top: 2, left: 20, right: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Chip(
-                        avatar: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_outlined,
-                            color: kPrimaryColor,
-                          ),
+                  child: GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => const SafeArea(
+                          child: WhoWhenSheet(),
                         ),
-                        side: BorderSide(color: kPrimaryColor),
-                        backgroundColor: Colors.white,
-                        label: Text(
-                          '2 • Now',
-                          style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.filter_alt_outlined,
-                          color: kPrimaryColor,
-                          size: 32,
-                        ),
-                        onPressed: () {
-                          showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            builder: (context) => const SafeArea(
-                              child: FilterSheet(),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Chip(
+                          avatar: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.person_outlined,
+                              color: kPrimaryColor,
                             ),
-                          );
-                        },
-                      )
-                    ],
+                          ),
+                          side: BorderSide(color: kPrimaryColor),
+                          backgroundColor: Colors.white,
+                          label: Text(
+                            '2 • Now',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.filter_alt_outlined,
+                            color: kPrimaryColor,
+                            size: 32,
+                          ),
+                          onPressed: () {
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) => const SafeArea(
+                                child: FilterSheet(),
+                              ),
+                            );
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
