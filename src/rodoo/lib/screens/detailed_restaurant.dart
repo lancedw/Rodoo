@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rodoo/screens/reserve_table.dart';
 import 'package:rodoo/widgets/buttons/rounded_button.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:rodoo/dao/fire_storage.dart';
@@ -141,7 +142,9 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                   RoundedLogRegButton(
                     color: kPrimaryColor,
                     buttonTitle: "Reserve Table",
-                    onPressed: () => {},
+                    onPressed: () => {
+                      Navigator.pushNamed(context, ReserveTableScreen.route)
+                    },
                   ),
                   RoundedLogRegButton(
                     color: kPrimaryColor,

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:rodoo/screens/account.dart';
 import 'package:rodoo/screens/login.dart';
+import 'package:rodoo/screens/reserve_table.dart';
 import 'package:rodoo/screens/search.dart';
 import 'package:rodoo/screens/order_pay.dart';
-import 'package:rodoo/screens/root.dart';
+import 'package:rodoo/root.dart';
 import 'package:rodoo/utils/theme.dart';
 
 import 'firebase_options.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         OrderPay.route: (context) => OrderPay(),
         Account.route: (context) => const Account(),
         LoginPage.route: (context) => const LoginPage(),
+        ReserveTableScreen.route: (context) => const ReserveTableScreen(),
       },
     );
   }

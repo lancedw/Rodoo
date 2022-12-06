@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rodoo/screens/root.dart';
 import 'package:rodoo/utils/constants.dart';
 
 class Search extends StatefulWidget {
