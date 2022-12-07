@@ -30,100 +30,102 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
           topRight: Radius.circular(10),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "Who & When",
-                style: restoNameTextStyle,
-              ),
-              IconButton(
+      child: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Who & When",
+                  style: restoNameTextStyle,
+                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                    size: 28,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        const Text("Who"),
+                        SizedBox(
+                          height: 200,
+                          width: 100,
+                          child: CupertinoPicker(
+                            itemExtent: 32,
+                            onSelectedItemChanged: (int value) {
+                              setState(() {
+                                numberOfAttendees = value;
+                              });
+                            },
+                            children: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                                .map((text) =>
+                                    Center(child: Text(text.toString())))
+                                .toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        const Text("When"),
+                        SizedBox(
+                          height: 200,
+                          width: 200,
+                          child: CupertinoPicker(
+                            itemExtent: 32,
+                            onSelectedItemChanged: (int value) {
+                              setState(() {
+                                selectedMeal = value;
+                              });
+                            },
+                            children: ["Breakfast", "Lunch", "Dinner"]
+                                .map((text) =>
+                                    Center(child: Text(text.toString())))
+                                .toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              height: 44,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: const Icon(
-                  Icons.close,
-                  size: 28,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      const Text("Who"),
-                      SizedBox(
-                        height: 200,
-                        width: 100,
-                        child: CupertinoPicker(
-                          itemExtent: 32,
-                          onSelectedItemChanged: (int value) {
-                            setState(() {
-                              numberOfAttendees = value;
-                            });
-                          },
-                          children: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-                              .map((text) =>
-                                  Center(child: Text(text.toString())))
-                              .toList(),
-                        ),
-                      ),
-                    ],
+                child: Text(
+                  "Apply filters",
+                  style: generalTextStyle.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Column(
-                    children: [
-                      const Text("When"),
-                      SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: CupertinoPicker(
-                          itemExtent: 32,
-                          onSelectedItemChanged: (int value) {
-                            setState(() {
-                              selectedMeal = value;
-                            });
-                          },
-                          children: ["Breakfast", "Lunch", "Dinner"]
-                              .map((text) =>
-                                  Center(child: Text(text.toString())))
-                              .toList(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          SizedBox(
-            height: 44,
-            child: TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(kPrimaryColor),
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text(
-                "Apply filters",
-                style: generalTextStyle.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

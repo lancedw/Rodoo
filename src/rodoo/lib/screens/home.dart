@@ -33,108 +33,102 @@ class _HomeState extends State<Home> {
     }
 
     return Scaffold(
-      body: SafeArea(
-        child: NestedScrollView(
-          floatHeaderSlivers: true,
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            SliverAppBar(
-              elevation: 0,
-              pinned: true,
-              backgroundColor: Colors.white,
-              title: Padding(
-                padding: Platform.isAndroid
-                    ? const EdgeInsets.only(top: 20)
-                    : const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Rodoo',
-                      style: TextStyle(
-                        fontFamily: 'Comfortaa',
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
-                        color: kPrimaryColor,
-                      ),
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverAppBar(
+            elevation: 0,
+            pinned: true,
+            backgroundColor: Colors.white,
+            title: Padding(
+              padding: Platform.isAndroid
+                  ? const EdgeInsets.only(top: 20)
+                  : const EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Rodoo',
+                    style: TextStyle(
+                      fontFamily: 'Comfortaa',
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                      color: kPrimaryColor,
                     ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.person_outlined,
-                        size: 32,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, Account.route);
-                      },
-                    )
-                  ],
-                ),
-              ),
-              bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(50),
-                child: Container(
-                  // top padding is to make sure that Rodo fully disappears
-                  padding: const EdgeInsets.only(top: 2, left: 20, right: 15),
-                  child: GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        builder: (context) => const SafeArea(
-                          child: WhoWhenSheet(),
-                        ),
-                      );
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.person_outlined,
+                      size: 32,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, Account.route);
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Chip(
-                          avatar: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.person_outlined,
-                              color: kPrimaryColor,
-                            ),
-                          ),
-                          side: BorderSide(color: kPrimaryColor),
+                  )
+                ],
+              ),
+            ),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(50),
+              child: Container(
+                // top padding is to make sure that Rodo fully disappears
+                padding: const EdgeInsets.only(top: 2, left: 20, right: 15),
+                child: GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => const WhoWhenSheet(),
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Chip(
+                        avatar: CircleAvatar(
                           backgroundColor: Colors.white,
-                          label: Text(
-                            '2 • Now',
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: Colors.black,
-                            ),
+                          child: Icon(
+                            Icons.person_outlined,
+                            color: kPrimaryColor,
                           ),
                         ),
-                        IconButton(
-                          icon: const Icon(
-                            Icons.filter_alt_outlined,
-                            color: kPrimaryColor,
-                            size: 32,
+                        side: BorderSide(color: kPrimaryColor),
+                        backgroundColor: Colors.white,
+                        label: Text(
+                          '2 • Now',
+                          style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Colors.black,
                           ),
-                          onPressed: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              builder: (context) => const SafeArea(
-                                child: FilterSheet(),
-                              ),
-                            );
-                          },
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.filter_alt_outlined,
+                          color: kPrimaryColor,
+                          size: 32,
+                        ),
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) => const FilterSheet(),
+                          );
+                        },
+                      )
+                    ],
                   ),
                 ),
               ),
-              floating: true,
-            )
-          ],
-          body: RestoWidget(),
-        ),
+            ),
+            floating: true,
+          )
+        ],
+        body: RestoWidget(),
       ),
     );
   }
