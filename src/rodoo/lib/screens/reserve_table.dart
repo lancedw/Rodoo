@@ -14,19 +14,17 @@ class ReserveTableScreen extends StatefulWidget {
 class _ReserveTableState extends State<ReserveTableScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          title: const Text(
-            "Reserve table",
-            style: appBarTextStyle,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: const Text(
+          "Reserve table",
+          style: appBarTextStyle,
         ),
-        body: const Center(
-          child: Text("Reserve"),
-        ),
+      ),
+      body: const Center(
+        child: Text("Reserve"),
       ),
     );
   }
