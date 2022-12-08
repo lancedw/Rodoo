@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rodoo/utils/date_helper.dart';
 import 'package:rodoo/utils/constants.dart';
-import 'package:rodoo/widgets/filter_sheet.dart';
+import 'package:rodoo/widgets/modal_sheets/filter_sheet.dart';
 import 'package:rodoo/widgets/home_listview.dart';
-import 'package:rodoo/widgets/who_when_sheet.dart';
+import 'package:rodoo/widgets/modal_sheets/who_when_sheet.dart';
 import 'dart:io' show Platform;
 
 import 'account.dart';

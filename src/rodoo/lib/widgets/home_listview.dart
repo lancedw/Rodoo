@@ -107,13 +107,26 @@ class RestoWidget extends StatelessWidget {
                                 Text(
                                   data['rating'].toString(),
                                   style: ratingTextStyle,
-                                )
+                                ),
                               ],
                             ),
-                            Text(
-                              // data['Address'].join(' • '),
-                              "${data['street']} ${data['street_number']}",
-                              style: generalTextStyle,
+                            Row(
+                              children: [
+                                Transform.rotate(
+                                  angle: 0.75,
+                                  child: const Icon(
+                                    Icons.navigation_rounded,
+                                    size: 16,
+                                  ),
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  // data['Address'].join(' • '),
+                                  // "${data['street']} ${data['street_number']}",
+                                  "${data['city']} - ${data['distance']}",
+                                  style: generalTextStyle,
+                                ),
+                              ],
                             ),
                           ],
                         ),
