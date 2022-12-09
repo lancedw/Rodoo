@@ -44,7 +44,7 @@ class _RestoWidgetState extends State<RestoWidget> {
         }
 
         return RefreshIndicator(
-          //TODO: style refresh indicator
+          //TODO: style refresh indicator (i.e. https://pub.dev/packages/custom_refresh_indicator)
           onRefresh: pullRefresh,
           backgroundColor: Colors.white,
           color: kPrimaryColor,

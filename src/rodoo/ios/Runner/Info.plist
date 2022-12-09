@@ -47,5 +47,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+    <string>Please allow Rodoo to access the camera</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>your usage description here</string>
 </dict>
 </plist>

@@ -6,7 +6,6 @@ import 'package:rodoo/widgets/modal_sheets/filter_sheet.dart';
 import 'package:rodoo/widgets/home_listview.dart';
 import 'package:rodoo/widgets/modal_sheets/who_what_sheet.dart';
 import 'dart:io' show Platform;
-
 import 'account.dart';
 
 class Home extends StatefulWidget {

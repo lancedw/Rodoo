@@ -13,7 +13,7 @@ class DetailedRestaurant extends StatefulWidget {
 
   final Map<String, dynamic> restaurantData;
 
-  DetailedRestaurant({required this.restaurantData});
+  const DetailedRestaurant({super.key, required this.restaurantData});
 
   @override
   State<DetailedRestaurant> createState() => _DetailedRestaurantState();
@@ -22,9 +22,10 @@ class DetailedRestaurant extends StatefulWidget {
 class _DetailedRestaurantState extends State<DetailedRestaurant> {
   // this list holds images in the right format to pass to the fullscreen image viewer
   late List<Widget> images = [];
+
   // initially the list is just a loading animation
   late List<Widget> carouselWidgets = [
-    Container(
+    SizedBox(
       height: MediaQuery.of(context).size.width * 0.5,
       width: MediaQuery.of(context).size.width,
       child: const Center(
@@ -52,16 +53,18 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
         ),
       ); // extended image widget
       images.add(photoView);
-      Container container = Container(
-        height: MediaQuery.of(context).size.width * 0.5,
+      SizedBox container = SizedBox(
+        //TODO: fix warning and sizing of images. Either by pre-cropping in the back-end or by sizing them in the flutter front-end
+        //height: MediaQuery.of(context).size.width * 0.9,
         width: MediaQuery.of(context).size.width,
         child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            // child: Image.network(
-            //   url,
-            //   fit: BoxFit.cover,
-            // ),
-            child: img),
+          borderRadius: BorderRadius.circular(8),
+          // child: Image.network(
+          //   url,
+          //   fit: BoxFit.cover,
+          // ),
+          child: img,
+        ),
       );
       result.add(container);
     }
@@ -139,17 +142,49 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                   Text(
                     "${widget.restaurantData['street']} ${widget.restaurantData['street_number']}",
                   ),
-                  RoundedLogRegButton(
-                    color: kPrimaryColor,
-                    buttonTitle: "Reserve Table",
-                    onPressed: () => {
-                      Navigator.pushNamed(context, ReserveTableScreen.route)
-                    },
-                  ),
-                  RoundedLogRegButton(
-                    color: kPrimaryColor,
-                    buttonTitle: "View Menu",
-                    onPressed: () => {},
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width*0.43,
+                          height: 45,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(context, ReserveTableScreen.route);
+                            },
+                            child: Text(
+                              "Book a Table",
+                              style: generalTextStyle.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width*0.43,
+                          height: 45,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                            ),
+                            onPressed: () {
+                              //TODO: menu discovery screen
+                            },
+                            child: Text(
+                              "View Menu",
+                              style: generalTextStyle.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const Text(
                     "Location",
