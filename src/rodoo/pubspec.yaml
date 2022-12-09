@@ -19,6 +19,7 @@ dependencies:
   cloud_firestore: ^4.1.0
   firebase_core: ^2.3.0
   dropdown_button2: ^1.9.1
+  syncfusion_flutter_datepicker: ^20.3.60
 
 dev_dependencies:
   flutter_test:

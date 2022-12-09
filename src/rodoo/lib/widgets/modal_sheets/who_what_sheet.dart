@@ -39,7 +39,7 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Who & When",
+                  "Who & What",
                   style: restoNameTextStyle,
                 ),
                 IconButton(
@@ -82,7 +82,7 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
                     ),
                     Column(
                       children: [
-                        const Text("When"),
+                        const Text("What"),
                         SizedBox(
                           height: 200,
                           width: 200,

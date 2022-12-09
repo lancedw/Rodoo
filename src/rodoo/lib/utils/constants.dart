@@ -80,4 +80,5 @@ const generalTextStyle = TextStyle(
 const generalBoldTextStyle = TextStyle(
   fontFamily: 'Montserrat',
   fontWeight: FontWeight.bold,
+  color: Colors.black,
 );

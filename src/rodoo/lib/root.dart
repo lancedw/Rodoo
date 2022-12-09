@@ -20,7 +20,7 @@ class _RootState extends State<Root> {
   PageController pageController = PageController();
 
   // list of widgets with different screens, must be in same order as nav bar icons
-  List<Widget> screens = [Home(), OrderPay(), Search()];
+  List<Widget> screens = [const Home(), OrderPay(), const Search()];
 
   void onPageChanged(int index) {
     setState(() {
