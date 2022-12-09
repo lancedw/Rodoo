@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(50),
               child: Container(
-                // top padding is to make sure that Rodo fully disappears
+                // top padding is to make sure that Rodoo fully disappears
                 padding: const EdgeInsets.only(top: 2, left: 20, right: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -167,7 +167,7 @@ class _HomeState extends State<Home> {
             floating: true,
           )
         ],
-        body: RestoWidget(),
+        body: const RestoWidget(),
       ),
     );
   }

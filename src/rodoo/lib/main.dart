@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Root.route: (context) => const Root(),
         Search.route: (context) => const Search(),
-        OrderPay.route: (context) => OrderPay(),
+        OrderPay.route: (context) => const OrderPay(),
         Account.route: (context) => const Account(),
         LoginPage.route: (context) => const LoginPage(),
         ReserveTableScreen.route: (context) => const ReserveTableScreen(),

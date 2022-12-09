@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:rodoo/screens/reserve_table.dart';
 import 'package:rodoo/widgets/buttons/rounded_button.dart';
 import 'package:photo_view/photo_view.dart';
@@ -148,14 +149,16 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          width: MediaQuery.of(context).size.width*0.43,
+                          width: MediaQuery.of(context).size.width * 0.43,
                           height: 45,
                           child: TextButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                              backgroundColor:
+                                  MaterialStateProperty.all(kPrimaryColor),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(context, ReserveTableScreen.route);
+                              Navigator.pushNamed(
+                                  context, ReserveTableScreen.route);
                             },
                             child: Text(
                               "Book a Table",
@@ -166,11 +169,12 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
                           ),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width*0.43,
+                          width: MediaQuery.of(context).size.width * 0.43,
                           height: 45,
                           child: TextButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                              backgroundColor:
+                                  MaterialStateProperty.all(kPrimaryColor),
                             ),
                             onPressed: () {
                               //TODO: menu discovery screen
@@ -227,19 +231,45 @@ class _DetailedRestaurantState extends State<DetailedRestaurant> {
               ),
             ),
             Column(
-              children: const [
-                Text(
-                  "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
-                ),
-                SizedBox(height: 7),
-                Text(
-                  "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
-                ),
-                SizedBox(height: 7),
-                Text(
-                  "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
-                ),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              //TODO: fetch from TripAdvisor API or implement own review functionality
+              children: [
+                for (int i = 0; i <= 3; i++)
+                  ListTile(
+                    leading: const Icon(
+                      Icons.textsms_rounded,
+                    ),
+                    iconColor: kPrimaryColor,
+                    title: Row(
+                      children: [
+                        const Text("John Doe - "),
+                        const Icon(
+                          Icons.star,
+                          size: 20,
+                        ),
+                        Text(
+                          widget.restaurantData['rating'].toString(),
+                          style: generalTextStyle,
+                        ),
+                      ],
+                    ),
+                    subtitle: const Text(
+                      "Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
+                    ),
+                  ),
               ],
+              // children: const [
+              //   Text(
+              //   ),
+              //   SizedBox(height: 7),
+              //   Text(
+              //     "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
+              //   ),
+              //   SizedBox(height: 7),
+              //   Text(
+              //     "John Smit: Had a great time here! Food was top quality, friendly personnel and very cosy interior!",
+              //   ),
+              // ],
             ),
             const Padding(
               padding: EdgeInsets.only(
