@@ -33,6 +33,10 @@ class _DateSheetState extends State<DateSheet> {
       color: kPrimaryColor,
       fontSize: 15,
     ),
+    weekendTextStyle: const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
   );
 
   @override
@@ -74,6 +78,14 @@ class _DateSheetState extends State<DateSheet> {
             SizedBox(
               height: 400,
               child: SfDateRangePicker(
+                view: DateRangePickerView.month,
+                monthViewSettings: const DateRangePickerMonthViewSettings(
+                  weekendDays: <int>[6,7],
+                  firstDayOfWeek: 1,
+                  viewHeaderStyle: DateRangePickerViewHeaderStyle(
+
+                  ),
+                ),
                 selectionMode: DateRangePickerSelectionMode.multiple,
                 yearCellStyle: customYearCellStyle,
                 monthCellStyle: customMonthCellStyle,
