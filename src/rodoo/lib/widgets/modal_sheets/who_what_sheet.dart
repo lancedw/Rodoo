@@ -3,7 +3,14 @@ import 'package:rodoo/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 
 class WhoWhenSheet extends StatefulWidget {
-  const WhoWhenSheet({Key? key}) : super(key: key);
+  final int numberOfAttendees;
+  final int selectedMeal;
+
+  const WhoWhenSheet({
+    required this.numberOfAttendees,
+    required this.selectedMeal,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<WhoWhenSheet> createState() => _WhoWhenSheetState();
@@ -15,8 +22,17 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
     fontFamily: "Montserrat",
     fontWeight: FontWeight.bold,
   );
-  int numberOfAttendees = 2;
-  int selectedMeal = 2;
+
+  late int numberOfAttendees;
+  late int selectedMeal;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    numberOfAttendees = widget.numberOfAttendees;
+    selectedMeal = widget.selectedMeal;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +82,9 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
                           height: 200,
                           width: 100,
                           child: CupertinoPicker(
+                            scrollController: FixedExtentScrollController(
+                              initialItem: numberOfAttendees-1,
+                            ),
                             itemExtent: 32,
                             onSelectedItemChanged: (int value) {
                               setState(() {
@@ -87,6 +106,9 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
                           height: 200,
                           width: 200,
                           child: CupertinoPicker(
+                            scrollController: FixedExtentScrollController(
+                              initialItem: selectedMeal,
+                            ),
                             itemExtent: 32,
                             onSelectedItemChanged: (int value) {
                               setState(() {
@@ -113,7 +135,7 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
                   backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, [numberOfAttendees + 1, selectedMeal]);
                 },
                 child: Text(
                   "Apply filters",
