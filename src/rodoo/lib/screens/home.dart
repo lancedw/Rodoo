@@ -21,7 +21,16 @@ class _HomeState extends State<Home> {
   int partySize = 2;
   int mealType = 2; //0:breakfast, 1:lunch, 2:diner
   List<String> mealTypes = ["Breakfast", "Lunch", "Diner"];
-  late DateTime date;
+  List<DateTime> dates = [DateTime(2022)];
+  List<String> weekdays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -113,14 +122,18 @@ class _HomeState extends State<Home> {
                         GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              builder: (context) => const DateSheet(),
-                            );
+                                    context: context,
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    builder: (context) =>
+                                        DateSheet(dates: dates))
+                                .then((data) => setState(() {
+                                      dates = data;
+                                    }))
+                                .onError((error, stackTrace) => dates = []);
                           },
-                          child: const Chip(
-                            avatar: CircleAvatar(
+                          child: Chip(
+                            avatar: const CircleAvatar(
                               backgroundColor: Colors.white,
                               child: Padding(
                                 padding: EdgeInsets.only(left: 4.0),
@@ -130,13 +143,15 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            side: BorderSide(color: kPrimaryColor),
+                            side: const BorderSide(color: kPrimaryColor),
                             backgroundColor: Colors.white,
                             labelPadding:
-                                EdgeInsets.only(left: 10.0, right: 8.0),
+                                const EdgeInsets.only(left: 10.0, right: 8.0),
                             label: Text(
-                              'Now',
-                              style: TextStyle(
+                              dates.isNotEmpty
+                                  ? weekdays[dates[0].weekday-1]
+                                  : "All",
+                              style: const TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,

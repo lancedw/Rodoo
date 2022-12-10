@@ -5,15 +5,17 @@ import 'package:rodoo/utils/theme.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class DateSheet extends StatefulWidget {
-  const DateSheet({Key? key}) : super(key: key);
+  final List<DateTime> dates;
+
+  const DateSheet({required this.dates, Key? key}) : super(key: key);
 
   @override
   State<DateSheet> createState() => _DateSheetState();
 }
 
 class _DateSheetState extends State<DateSheet> {
-
-  DateRangePickerYearCellStyle customYearCellStyle = DateRangePickerYearCellStyle(
+  DateRangePickerYearCellStyle customYearCellStyle =
+      DateRangePickerYearCellStyle(
     textStyle: const TextStyle(
       fontSize: 15,
       color: Colors.black,
@@ -24,7 +26,8 @@ class _DateSheetState extends State<DateSheet> {
     ),
   );
 
-  DateRangePickerMonthCellStyle customMonthCellStyle = DateRangePickerMonthCellStyle(
+  DateRangePickerMonthCellStyle customMonthCellStyle =
+      DateRangePickerMonthCellStyle(
     textStyle: const TextStyle(
       fontSize: 15,
       color: Colors.black,
@@ -38,6 +41,14 @@ class _DateSheetState extends State<DateSheet> {
       color: Colors.black,
     ),
   );
+
+  late List<DateTime> selectedDates;
+
+  @override
+  void initState() {
+    selectedDates = widget.dates;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +89,11 @@ class _DateSheetState extends State<DateSheet> {
             SizedBox(
               height: 400,
               child: SfDateRangePicker(
+                initialSelectedDates: selectedDates,
                 view: DateRangePickerView.month,
                 monthViewSettings: const DateRangePickerMonthViewSettings(
-                  weekendDays: <int>[6,7],
+                  weekendDays: <int>[6, 7],
                   firstDayOfWeek: 1,
-                  viewHeaderStyle: DateRangePickerViewHeaderStyle(
-
-                  ),
                 ),
                 selectionMode: DateRangePickerSelectionMode.multiple,
                 yearCellStyle: customYearCellStyle,
@@ -104,6 +113,9 @@ class _DateSheetState extends State<DateSheet> {
                     fontSize: 18,
                   ),
                 ),
+                onSelectionChanged: (selection) {
+                  selectedDates = selection.value;
+                },
               ),
             ),
             const SizedBox(height: 12),
@@ -114,7 +126,7 @@ class _DateSheetState extends State<DateSheet> {
                   backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, selectedDates);
                 },
                 child: Text(
                   "Apply filters",
