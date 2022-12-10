@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,7 +9,7 @@ const Color rodooGrey = Color(0xFF616161);
 const Color kPrimaryColor = rodooRose;
 const Color kSecondaryColor = rodooGrey;
 
-const kDebugMode = true;
+const kDebugMode = !kReleaseMode;
 
 const String assetName = 'assets/icons/RestoIcon.svg';
 final Widget restoIconSmall = SvgPicture.asset(
