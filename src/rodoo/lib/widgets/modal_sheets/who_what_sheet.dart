@@ -83,7 +83,7 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
                           width: 100,
                           child: CupertinoPicker(
                             scrollController: FixedExtentScrollController(
-                              initialItem: numberOfAttendees-1,
+                              initialItem: numberOfAttendees,
                             ),
                             itemExtent: 32,
                             onSelectedItemChanged: (int value) {
@@ -135,7 +135,7 @@ class _WhoWhenSheetState extends State<WhoWhenSheet> {
                   backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                 ),
                 onPressed: () {
-                  Navigator.pop(context, [numberOfAttendees + 1, selectedMeal]);
+                  Navigator.pop(context, [numberOfAttendees, selectedMeal]);
                 },
                 child: Text(
                   "Apply filters",

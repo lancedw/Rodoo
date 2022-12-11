@@ -18,10 +18,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int partySize = 2;
+  int partySize = 1;
   int mealType = 2; //0:breakfast, 1:lunch, 2:diner
   List<String> mealTypes = ["Breakfast", "Lunch", "Diner"];
-  List<DateTime> dates = [DateTime(2022)];
+  List<DateTime> dates = [];
   List<String> weekdays = [
     "Monday",
     "Tuesday",
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                             side: const BorderSide(color: kPrimaryColor),
                             backgroundColor: Colors.white,
                             label: Text(
-                              '$partySize • ${mealTypes[mealType]}',
+                              '${partySize+1} • ${mealTypes[mealType]}',
                               style: const TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,

@@ -20,20 +20,18 @@ class _RootState extends State<Root> {
   PageController pageController = PageController();
 
   // list of widgets with different screens, must be in same order as nav bar icons
-  List<Widget> screens = [const Home(), OrderPay(), const Search()];
-
-  void onPageChanged(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
+  List<Widget> screens = [const Home(), const OrderPay(), const Search()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: pageController,
-        onPageChanged: onPageChanged,
+        onPageChanged: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
         physics: const NeverScrollableScrollPhysics(),
         children: screens,
       ),

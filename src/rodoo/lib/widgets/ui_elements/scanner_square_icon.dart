@@ -50,7 +50,7 @@ class ScannerSquare extends StatelessWidget {
                     ),
                   ),
                 )
-              : Text("ds"),
+              : null,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
