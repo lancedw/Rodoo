@@ -18,10 +18,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int partySize = 1;
-  int mealType = 2; //0:breakfast, 1:lunch, 2:diner
+  late int partySize;
+  late int mealType;
+  late List<DateTime> dates;
+
   List<String> mealTypes = ["Breakfast", "Lunch", "Diner"];
-  List<DateTime> dates = [];
   List<String> weekdays = [
     "Monday",
     "Tuesday",
@@ -31,6 +32,14 @@ class _HomeState extends State<Home> {
     "Saturday",
     "Sunday"
   ];
+
+  @override
+  void initState() {
+    partySize = 1;
+    mealType = 2; //0:breakfast, 1:lunch, 2:diner
+    dates = [];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
